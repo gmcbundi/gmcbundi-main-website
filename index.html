@@ -173,10 +173,18 @@
             background-color: #ffffff !important;
         }
 
-        /* Marquee speed control */
+        /* Marquee speed control and seamless setup */
         @keyframes marquee {
-            0% { transform: translateX(100%); }
+            0% { transform: translateX(0%); }
             100% { transform: translateX(-100%); }
+        }
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            animation: marquee 35s linear infinite;
+        }
+        .news-ticker-container:hover .marquee-content {
+            animation-play-state: paused;
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -363,8 +371,16 @@
             <div class="bg-brand-700 text-white px-4 py-2 text-sm font-bold uppercase tracking-wide flex-shrink-0 z-10 shadow-md" data-key="latest_updates">
                 Latest Updates
             </div>
-            <div class="flex-grow overflow-hidden relative h-9">
-                <div class="absolute whitespace-nowrap py-2 animate-[marquee_35s_linear_infinite] hover:[animation-play-state:paused] flex items-center space-x-8 text-sm text-brand-900 font-medium">
+            <div class="flex-grow overflow-hidden flex whitespace-nowrap h-9 items-center news-ticker-container">
+                <div class="marquee-content flex items-center space-x-8 px-4 text-sm text-brand-900 font-medium">
+                    <span class="diwali-update-item flex items-center bg-orange-100 px-3 py-1 rounded-full border border-orange-300 shadow-sm"><span class="w-2 h-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></span><strong class="mr-1 text-orange-800">DIWALI:</strong> <span class="text-orange-900">Diwali Celebration on 8 Nov. For download Pre Diwali Celebration photos and Videos please <a href="https://photos.app.goo.gl/EuKtAeJuVUqsXDKAA" target="_blank" class="ml-1 underline text-orange-700 hover:text-orange-900 font-bold">visit here</a>.</span></span>
+                    <span class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span><strong class="mr-1">NEW:</strong> Tarakash 2.0 - Annual Festival Dates: 23 Feb to 1 March 2026.</span>
+                    <span class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span><strong class="mr-1">GALLERY:</strong> For watching or downloading college fest photos or videos, <a href="https://drive.google.com/drive/folders/1JSZ2fE9jH6GeSeGQ_HvX0VcTnRo7A81g?usp=sharing" target="_blank" class="ml-1 underline text-brand-700 hover:text-brand-900 font-bold">click here</a>.</span>
+                    <span class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Welcome to the official website of Bundi Medical Student Association (BMSA).</span>
+                </div>
+                <!-- Duplicate for seamless scroll without gaps -->
+                <div class="marquee-content flex items-center space-x-8 px-4 text-sm text-brand-900 font-medium" aria-hidden="true">
+                    <span class="diwali-update-item flex items-center bg-orange-100 px-3 py-1 rounded-full border border-orange-300 shadow-sm"><span class="w-2 h-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></span><strong class="mr-1 text-orange-800">DIWALI:</strong> <span class="text-orange-900">Diwali Celebration on 8 Nov. For download Pre Diwali Celebration photos and Videos please <a href="https://photos.app.goo.gl/EuKtAeJuVUqsXDKAA" target="_blank" class="ml-1 underline text-orange-700 hover:text-orange-900 font-bold">visit here</a>.</span></span>
                     <span class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span><strong class="mr-1">NEW:</strong> Tarakash 2.0 - Annual Festival Dates: 23 Feb to 1 March 2026.</span>
                     <span class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span><strong class="mr-1">GALLERY:</strong> For watching or downloading college fest photos or videos, <a href="https://drive.google.com/drive/folders/1JSZ2fE9jH6GeSeGQ_HvX0VcTnRo7A81g?usp=sharing" target="_blank" class="ml-1 underline text-brand-700 hover:text-brand-900 font-bold">click here</a>.</span>
                     <span class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Welcome to the official website of Bundi Medical Student Association (BMSA).</span>
@@ -746,7 +762,7 @@
                 <span class="w-8 h-1 bg-brand-600 ml-3"></span>
             </h2>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
                 <!-- GMC Bundi Official -->
                 <a href="https://www.instagram.com/gmc.bundi/?hl=en" target="_blank" class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-slate-200 group flex flex-col items-center">
                     <div class="w-14 h-14 bg-pink-50 rounded-full flex items-center justify-center mb-3 group-hover:shadow-md transition-all">
@@ -781,6 +797,15 @@
                     </div>
                     <h3 class="font-bold text-lg text-slate-800 mb-1">Taraksh Gallery</h3>
                     <p class="text-sm text-slate-500 font-medium">@taraksh.gmcbundi</p>
+                </a>
+                
+                <!-- X (Twitter) Official -->
+                <a href="https://x.com/gmcbundi" target="_blank" class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-slate-200 group flex flex-col items-center">
+                    <div class="w-14 h-14 bg-slate-100 rounded-full flex items-center justify-center mb-3 group-hover:shadow-md transition-all">
+                        <svg class="w-6 h-6 text-slate-900" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 mb-1">GMC Bundi X</h3>
+                    <p class="text-sm text-slate-500 font-medium">@gmcbundi</p>
                 </a>
             </div>
             
@@ -1329,6 +1354,16 @@
                     timeZoneName: 'short' 
                 };
                 timeElement.textContent = now.toLocaleString('en-IN', options).replace('GMT+5:30', 'IST');
+            }
+
+            // Auto-hide Diwali update after Nov 8, 2026
+            const diwaliUpdates = document.querySelectorAll('.diwali-update-item');
+            if (diwaliUpdates.length > 0) {
+                const today = new Date();
+                // If it's Nov 9, 2026 or later (IST), hide the update
+                if (today >= new Date('2026-11-09T00:00:00+05:30')) {
+                    diwaliUpdates.forEach(el => el.style.display = 'none');
+                }
             }
         });
 
